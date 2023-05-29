@@ -48,7 +48,7 @@ class PostSerializer(serializers.ModelSerializer):
         # Set the 'image' field separately if it exists
         if image is not None:
             post.image = image
-            # post.save()
+            post.save()
 
         return post
 #####
