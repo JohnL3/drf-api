@@ -37,21 +37,22 @@ class PostSerializer(serializers.ModelSerializer):
             ).first()
             return like.id if like else None
         return None
-###
-    def create(self, validated_data):
-        # Remove the 'image' field from validated_data
-        image = validated_data.pop('image', None)
 
-        # Create the Post object without the 'image' field
-        post = Post.objects.create(**validated_data)
+    # def create(self, validated_data):
+    #     # Remove the 'image' field from validated_data
+    #     # image = validated_data.pop('image', None)
 
-        # Set the 'image' field separately if it exists
-        if image is not None:
-            post.image = image
-            post.save()
+    #     # Create the Post object without the 'image' field
+    #     post = Post.objects.create(**validated_data)
 
-        return post
-#####
+    #     # Set the 'image' field separately if it exists
+    #     if image is not None:
+    #         post.image = image
+    #         print('****', post.image, image)
+    #         # post.save()
+
+    #     return post
+
 
 
     class Meta:
